@@ -31,14 +31,14 @@ export default class App extends Component{  //클래스형 컴포넌트
   }
 
   handleClick = (id) => {
-    let newtodoData = this.state.todoData.filter((data) => data.id !== id); // 파라미터 id와 다른 data.id를 가진 data들로만 재나열
+    let newtodoData = this.state.todoData.filter((data) => data.id !== id); // 조건문을 통과하는 요소들로 재나열
     this.setState({ todoData: newtodoData });
-    console.log('newtodoData', newtodoData)
+    //console.log('newtodoData', newtodoData)
   }
 
   handleChange = (e) => {
-    console.log('e',e.target.value)
-    this.setState({value: e.target.value})
+    //console.log('e',e.target.value)
+    this.setState({value: e.target.value}) //써진 값들
   }
 
   handleSubmit = (e) => {
@@ -59,13 +59,13 @@ export default class App extends Component{  //클래스형 컴포넌트
       if(data.id === id){
         data.completed = !data.completed;
       }
-      return data;
+      return data; //newtodoData=data
     });
-    this.setState({ todoData : newtodoData});
+    this.setState({ todoData : newtodoData}); //state가 바뀌면 컴포넌트는 리렌더링
   }
 
   // 랜더 시 보이는 UI (랜더 함수내에서 UI 작성)
-  render() { 
+  render() {  
     return( 
       <div className="container">
 
@@ -87,14 +87,15 @@ export default class App extends Component{  //클래스형 컴포넌트
         </div>
         ))}        
 
-        <form style={{display:'flex'}} onSubmit={this.handleSubmit}>
-          <input
-            type="text"
+        
+        <form style={{display:'flex'}} onSubmit={this.handleSubmit}> 
+          <input //form- 입력양식 태그
+            type="text" 
             name="value"
             style={{flex:'10', padding: '5px'}}
             placeholder="해야할 일을 입력하세요"
             value={this.state.value} //적히는 부분
-            onChange={this.handleChange}
+            onChange={this.handleChange}// 적으면 value값 변경
           />
           <input
             type="submit"
