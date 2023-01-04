@@ -22,6 +22,8 @@ export default class App extends Component{  //클래스형 컴포넌트
 
   //구현한 함수
 
+  //completed 값에 따라 line-through(완료 표시)가 추가되는 함수
+
   getStyle = (completed) => {
     return{
       padding: "10px",
@@ -30,16 +32,22 @@ export default class App extends Component{  //클래스형 컴포넌트
     }
   }
 
+  //클릭된 버튼의 id만 제외하고 todoData를 재구성하는 함수
+
   handleClick = (id) => {
     let newtodoData = this.state.todoData.filter((data) => data.id !== id); // 조건문을 통과하는 요소들로 재나열
     this.setState({ todoData: newtodoData });
     //console.log('newtodoData', newtodoData)
   }
 
+  //value의 상태를 확인하는 함수
+
   handleChange = (e) => {
     //console.log('e',e.target.value)
     this.setState({value: e.target.value}) //써진 값들
   }
+
+  //입력한 value값을 title로 지정해 새 할 일 데이터를 추가하는 함수
 
   handleSubmit = (e) => {
     //form 안에서 input를 전송시 리로드를 막음
@@ -53,6 +61,8 @@ export default class App extends Component{  //클래스형 컴포넌트
     }  
     this.setState({ todoData : [...this.state.todoData, newTodo], value:""}); //전개 연산자 (특정 객체의 값 -> 다른 객체로 복제, 옮길때)
   }
+
+  // 체크박스의 체크여부 상태를 확인하는 함수
 
   handleCompletedChange = (id) => {
     let newtodoData = this.state.todoData.map((data)=> {
@@ -95,7 +105,7 @@ export default class App extends Component{  //클래스형 컴포넌트
             style={{flex:'10', padding: '5px'}}
             placeholder="해야할 일을 입력하세요"
             value={this.state.value} //적히는 부분
-            onChange={this.handleChange}// 적으면 value값 변경
+            onChange={this.handleChange}// value가 수정되면 value값 변경
           />
           <input
             type="submit"
