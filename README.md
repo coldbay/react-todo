@@ -4,6 +4,8 @@
 
 참고한 강의: https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8#curriculum 
 
+강의노트 필기: https://natural-dracopelta-45d.notion.site/todo-40575c6311ed4cbeaff2c32b415ed877
+
 
 ## 구현한 부분
 
@@ -13,7 +15,7 @@ App.js - 클래스형 컴포넌트에 상태 확인함수들, 그 상태를 통�
 
 세부사항은 파일 주석참고
 
-App.css - App.js에 적용되는 css, container, todoblock 레이아웃을 지정
+App.css - App.js에 적용되는 css, container, todoblock 스타일을 지정
 
-index.css - index에서 App을 렌더하므로 전체 바탕 레이아웃을 지정
+index.css - index에서 App을 렌더하므로 전체 바탕 스타일을 지정
 ```
